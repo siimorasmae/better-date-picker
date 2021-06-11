@@ -6,10 +6,10 @@ import json from '@rollup/plugin-json'
 import css from "rollup-plugin-import-css";
 
 export default {
-    input: 'src/index.js',
-    output: {
-        format: 'es',
-        file: './index.js',
-    },
-    plugins: [terser(), nodeResolve(), commonjs(), vue(), json(), css()],
+  input: 'src/index.js',
+  output: {
+    format: 'es',
+    file: './index.js',
+  },
+  plugins: [terser(), nodeResolve(), commonjs(), vue(), json(), css()],
 };
