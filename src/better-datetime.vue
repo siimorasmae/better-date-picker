@@ -2,6 +2,7 @@
   <input
     class="better-datetime"
     ref="datepicker"
+    type="date"
   />
 </template>
 
@@ -13,6 +14,7 @@ import locale from 'flatpickr/dist/l10n/et.js';
 let picker;
 
 export default {
+  emits: ['input'],
   props: {
     value: String,
     enableTime: {
@@ -32,11 +34,7 @@ export default {
       default: 'H:i',
     },
   },
-  inject: ['system'],
   mounted() {
-    const userStore = this.system.useUserStore();
-    const userLanguage = userStore.state.currentUser.language;
-
     picker = flatpickr(this.$refs.datepicker, {
       mode: 'single',
       altFormat: `${this.dateFormat} ${this.enableTime ? this.timeFormat : ''}`,
@@ -44,9 +42,7 @@ export default {
       time_24hr: true,
       enableTime: this.enableTime,
       noCalendar: !this.enableCalendar,
-      locale: userLanguage === 'et-EE'
-        ? locale.et
-        : locale.en,
+      locale: locale.et,
       onChange: selectedDates => {
         const date = selectedDates.length
           ? formatISO(selectedDates[0])

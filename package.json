@@ -4,23 +4,28 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "npx rollup -c"
+    "build": "npx directus-extension build"
   },
   "devDependencies": {
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "@vue/compiler-sfc": "^3.0.5",
-    "rollup": "^2.36.0",
+    "@directus/extensions-sdk": "^9.0.0-rc.97",
+    "@rollup/plugin-commonjs": "^21.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "rollup": "^2.58.0",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-import-css": "^2.0.1",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-vue": "5.0.0",
-    "vue-template-compiler": "^2.6.12"
+    "rollup-plugin-vue": "^5.1.9",
+    "vue-template-compiler": "^2.6.14"
   },
   "license": "ISC",
   "dependencies": {
-    "date-fns": "^2.22.1",
+    "date-fns": "^2.25.0",
     "flatpickr": "^4.6.9"
+  },
+  "directus:extension": {
+    "type": "interface",
+    "path": "index.js",
+    "source": "src/index.js",
+    "host": "^9.0.0-rc.97",
+    "hidden": false
   }
 }
